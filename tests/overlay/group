@@ -54,3 +54,12 @@
 101 auto quick union samefs
 102 auto union rotate nonsamefs
 103 auto union rotate samefs
+199 auto quick snapshot
+200 auto snapshot
+201 auto snapshot
+202 auto snapshot rotate
+203 auto snapshot rotate
+204 auto snapshot rotate
+205 auto snapshot rotate
+206 auto snapshot rotate
+207 auto snapshot rotate
