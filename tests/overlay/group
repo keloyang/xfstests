@@ -50,3 +50,7 @@
 050 auto quick copyup hardlink exportfs
 051 auto quick copyup hardlink exportfs nonsamefs
 052 auto quick copyup hardlink exportfs nested
+100 auto quick union nonsamefs
+101 auto quick union samefs
+102 auto union rotate nonsamefs
+103 auto union rotate samefs

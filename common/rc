@@ -1891,6 +1891,14 @@ _require_test_program()
     [ -x $SRC_TEST ] || _notrun "$SRC_TEST not built"
 }
 
+# this test requires that the unionmount testsuite is installed under src/
+_require_unionmount_testsuite()
+{
+	UNIONMOUNT_TESTSUITE=src/unionmount-testsuite
+	[ -x "$UNIONMOUNT_TESTSUITE/run" ] || \
+		_notrun "unionmount testsuite required."
+}
+
 # run an aio-dio program
 # $1 - command
 _run_aiodio()
