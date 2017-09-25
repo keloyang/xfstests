@@ -1,0 +1,10 @@
+QA output created by 500
+test_file_handles TEST_DIR/500-dir -dp
+test_file_handles TEST_DIR/500-dir -rp
+test_file_handles TEST_DIR/500-dir -dkr
+test_file_handles TEST_DIR/500-dir -lr
+test_file_handles TEST_DIR/500-dir -ur
+test_file_handles TEST_DIR/500-dir -mr
+test_file_handles TEST_DIR/500-dir.renamed -rp
+test_file_handles TEST_DIR/500-dir.new -rp
+Silence is golden
