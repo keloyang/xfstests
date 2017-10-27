@@ -1,0 +1,43 @@
+QA output created by 052
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -p
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -wrap
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -p
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -wrap
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -a
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -r
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -a
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -r
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -dk
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir.rw -rwdk
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -dk
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir.rw -rwdk
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -dp
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -dp
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -wlr
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -ur
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -wlr
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -ur
+test_file_handles SCRATCH_DEV/OVL_LOWER/lowertestdir -l
+test_file_handles SCRATCH_DEV/OVL_UPPER/uppertestdir -l
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -wur
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -wur
+test_file_handles SCRATCH_DEV/OVL_LOWER/lowertestdir -l
+test_file_handles SCRATCH_DEV/OVL_UPPER/uppertestdir -l
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -d
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -d
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir -wmr
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir -wmr
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir.new -rwp
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir.new -rwp
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir.up -rp
+test_file_handles SCRATCH_DEV/tmp/mnt/uppertestdir.lo -rp
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir.up -rp
+test_file_handles SCRATCH_DEV/tmp/mnt/lowertestdir.lo -rp
