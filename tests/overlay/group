@@ -49,3 +49,4 @@
 044 auto quick copyup hardlink nonsamefs
 050 auto quick copyup hardlink exportfs
 051 auto quick copyup hardlink exportfs nonsamefs
+052 auto quick copyup hardlink exportfs nested
