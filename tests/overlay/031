@@ -1,7 +1,7 @@
 #! /bin/bash
 # FS QA Test 031
 #
-# The unmerged and origined directories may contain invalid
+# An upper directory that used to be merged dir may contain leftover
 # whiteouts when we change underlaying dir (e.g. clean up lowerdir)
 # and remount overlay. This may lead to whiteouts exposure and
 # rmdir failure.
@@ -53,6 +53,9 @@ create_whiteout()
 
 	_overlay_scratch_mount_dirs $lower $upper $work
 
+	# copy up test file before removing it to set the 'impure' xattr
+	# on testdir
+	touch $SCRATCH_MNT/testdir/$file
 	rm -f $SCRATCH_MNT/testdir/$file
 
 	$UMOUNT_PROG $SCRATCH_MNT
@@ -85,15 +88,36 @@ testfile1=a
 testfile2=b
 mkdir -p $lowerdir1 $lowerdir2 $upperdir $workdir $workdir1
 
+# Pre-create the upper testdir to simulate a situation where it was
+# copied up with kernel < v4.12 and origin xattr was not stored
+mkdir -p $upperdir/testdir
+
+# Create whiteouts in upperdir
 create_whiteout $lowerdir1 $upperdir $workdir $testfile1
+
+# Verify restoration of origin xattr on merge dir lookup (before whiteout
+# is created)
+$GETFATTR_PROG --absolute-names -d -m overlay $upperdir/testdir | \
+	grep -q 'trusted.overlay.origin' || \
+	echo "No origin xattr after merge dir lookup"
 
 # clean up the lower directory and mount overlay again,
 # whiteout will expose.
 rm -rf $lowerdir1/testdir
 
+# Remove origin xattr to simulate a situation where whiteout was
+# created with kernel < v4.12 and origin xattr was not stored in testdir
+# on copy up, nor had been restored on lookup before lower was gone
+$SETFATTR_PROG -x 'trusted.overlay.origin' $upperdir/testdir >/dev/null
+
 _overlay_scratch_mount_dirs $lowerdir1 $upperdir $workdir
 
 ls $SCRATCH_MNT/testdir
+
+# Verify restoration of origin xattr on readdir of impure upper
+$GETFATTR_PROG --absolute-names -d -m overlay $upperdir/testdir | \
+	grep -q 'trusted.overlay.origin' || \
+	echo "No origin xattr after impure dir iteration"
 
 # try to remove test dir from overlay dir, trigger ovl_remove_upper,
 # it will not clean up the dir and lead to rmdir failure.
