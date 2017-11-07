@@ -68,7 +68,7 @@ main(int argc, char *argv[])
 	struct linux_dirent64 *d;
 	int bpos;
 	int type = -1; /* -1 means all types */
-	uint64_t ino = 0;
+	unsigned long ino = 0;
 	int ret = 1;
 
 	fd = open(argv[1], O_RDONLY | O_DIRECTORY);
@@ -85,7 +85,7 @@ main(int argc, char *argv[])
 				break;
 		/* no match ends up with type = -1 */
 		if (type < 0)
-			ino = atoll(argv[2]);
+			ino = strtoul(argv[2], NULL, 10);
 	}
 
 	for ( ; ; ) {
